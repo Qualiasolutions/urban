@@ -1,10 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const footerLinks = {
   company: [
-    { label: 'About Us', href: '#about' },
+    { label: 'About Us', href: '/company' },
     { label: 'Our Team', href: '#' },
     { label: 'Careers', href: '#' },
     { label: 'Contact', href: '#contact' },
@@ -25,31 +26,29 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="relative bg-navy-900 border-t border-white/5">
+    <footer className="relative bg-navy-900 border-t border-cream-200/5">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <a href="#" className="inline-block mb-6">
-              <span className="font-display text-3xl font-bold">
+              <span className="font-display text-2xl font-semibold">
                 <span className="text-cream-100">Urban</span>
-                <span className="text-gradient-gold"> Catering</span>
+                <span className="text-cream-200/50"> Catering</span>
               </span>
             </a>
-            <p className="text-cream-200/60 text-sm leading-relaxed mb-6 max-w-sm">
+            <p className="text-cream-200/40 text-sm leading-relaxed mb-6 max-w-sm">
               Transforming Nicosia venues into extraordinary gastronomic experiences
-              since 2009. Premium catering for unforgettable events.
+              since 2009.
             </p>
-            <div className="flex gap-4">
-              {['facebook', 'instagram', 'linkedin'].map((social) => (
+            <div className="flex gap-3">
+              {['F', 'I', 'L'].map((letter, i) => (
                 <a
-                  key={social}
-                  href={`https://${social}.com/urbancateringcy`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gold-500 text-cream-200/60 hover:text-navy-950 transition-all duration-300"
+                  key={i}
+                  href="#"
+                  className="w-9 h-9 border border-cream-200/10 flex items-center justify-center hover:bg-cream-100 hover:text-navy-950 text-cream-200/40 transition-all duration-300 text-xs font-medium"
                 >
-                  <span className="text-xs font-bold">{social[0].toUpperCase()}</span>
+                  {letter}
                 </a>
               ))}
             </div>
@@ -57,30 +56,30 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="font-display text-cream-100 font-semibold mb-4">Company</h4>
+            <h4 className="font-display text-cream-100 font-medium text-sm mb-4 pb-2 border-b border-cream-200/10">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-cream-200/60 text-sm hover:text-gold-400 transition-colors"
-                  >
-                    {link.label}
-                  </a>
+                  {link.href.startsWith('/') ? (
+                    <Link href={link.href} className="text-cream-200/40 text-sm hover:text-cream-100 transition-colors">
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a href={link.href} className="text-cream-200/40 text-sm hover:text-cream-100 transition-colors">
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-display text-cream-100 font-semibold mb-4">Services</h4>
+            <h4 className="font-display text-cream-100 font-medium text-sm mb-4 pb-2 border-b border-cream-200/10">Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-cream-200/60 text-sm hover:text-gold-400 transition-colors"
-                  >
+                  <a href={link.href} className="text-cream-200/40 text-sm hover:text-cream-100 transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -89,14 +88,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display text-cream-100 font-semibold mb-4">Menus</h4>
+            <h4 className="font-display text-cream-100 font-medium text-sm mb-4 pb-2 border-b border-cream-200/10">Menus</h4>
             <ul className="space-y-3">
               {footerLinks.menus.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-cream-200/60 text-sm hover:text-gold-400 transition-colors"
-                  >
+                  <a href={link.href} className="text-cream-200/40 text-sm hover:text-cream-100 transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -111,14 +107,14 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4"
+          className="mt-16 pt-8 border-t border-cream-200/5 flex flex-col md:flex-row justify-between items-center gap-4"
         >
-          <p className="text-cream-200/40 text-sm">
+          <p className="text-cream-200/30 text-xs">
             &copy; {new Date().getFullYear()} Urban Catering. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-cream-200/40">
-            <a href="#" className="hover:text-gold-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-gold-400 transition-colors">Terms of Service</a>
+          <div className="flex gap-6 text-xs text-cream-200/30">
+            <a href="#" className="hover:text-cream-100 transition-colors">Privacy</a>
+            <a href="#" className="hover:text-cream-100 transition-colors">Terms</a>
           </div>
         </motion.div>
       </div>

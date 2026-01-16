@@ -28,7 +28,7 @@ export default function Excellence() {
     <section
       ref={ref}
       id="excellence"
-      className="relative py-32 overflow-hidden"
+      className="relative py-28 overflow-hidden"
     >
       {/* Background with Parallax */}
       <motion.div
@@ -41,7 +41,7 @@ export default function Excellence() {
             backgroundImage: `url('https://i.ibb.co/JQg3dsX/unsplash-image-q-OAzn-SDk-MME.jpg')`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/80 to-navy-950/95" />
+        <div className="absolute inset-0 bg-navy-950/90" />
       </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -52,7 +52,7 @@ export default function Excellence() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
-              className="inline-block px-4 py-2 border border-gold-500/30 text-gold-400 text-xs tracking-[0.2em] uppercase rounded-full mb-6"
+              className="inline-block px-4 py-2 border border-cream-200/10 text-cream-200/50 text-xs tracking-[0.25em] uppercase mb-6"
             >
               Our Promise
             </motion.span>
@@ -61,17 +61,17 @@ export default function Excellence() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-cream-100 mb-6 leading-tight"
+              className="font-display text-4xl sm:text-5xl font-bold text-cream-100 mb-6 leading-tight"
             >
               The Urban
-              <span className="block text-gradient-gold">Standard</span>
+              <span className="block text-cream-200/60">Standard</span>
             </motion.h2>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-cream-200/80 text-lg leading-relaxed mb-10"
+              className="text-cream-200/60 leading-relaxed mb-10"
             >
               We provide everything needed for your perfect event — from professional
               equipment to ambient lighting, sophisticated décor to expert staff.
@@ -93,10 +93,10 @@ export default function Excellence() {
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                   className="flex items-center gap-3 group"
                 >
-                  <div className="w-6 h-6 rounded-full bg-gold-500/20 flex items-center justify-center group-hover:bg-gold-500 transition-colors duration-300">
-                    <Check className="w-3.5 h-3.5 text-gold-400 group-hover:text-navy-950 transition-colors duration-300" />
+                  <div className="w-5 h-5 border border-cream-200/20 flex items-center justify-center group-hover:border-cream-200/40 transition-colors">
+                    <Check className="w-3 h-3 text-cream-200/60" />
                   </div>
-                  <span className="text-cream-200/80 text-sm">{feature}</span>
+                  <span className="text-cream-200/60 text-sm">{feature}</span>
                 </motion.div>
               ))}
             </motion.div>
@@ -107,50 +107,30 @@ export default function Excellence() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative"
+            className="relative hidden lg:block"
           >
-            {/* Decorative Frame */}
             <div className="relative aspect-square max-w-md mx-auto">
-              {/* Outer Ring */}
-              <div className="absolute inset-0 border-2 border-gold-500/20 rounded-full" />
+              {/* Outer Frame */}
+              <div className="absolute inset-0 border border-cream-200/10" />
+              <div className="absolute inset-4 border border-cream-200/10" />
 
-              {/* Middle Ring */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
-                className="absolute inset-8 border border-gold-500/30 rounded-full"
-              >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-gold-500 rounded-full" />
-              </motion.div>
-
-              {/* Inner Circle */}
-              <div className="absolute inset-16 glass rounded-full flex items-center justify-center">
+              {/* Center Content */}
+              <div className="absolute inset-12 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="font-display text-6xl font-bold text-gradient-gold mb-2">
+                  <div className="font-display text-6xl font-bold text-cream-100 mb-2">
                     100%
                   </div>
-                  <div className="text-cream-200/60 text-sm uppercase tracking-wider">
+                  <div className="text-cream-200/40 text-xs uppercase tracking-[0.2em]">
                     Commitment to<br />Excellence
                   </div>
                 </div>
               </div>
 
-              {/* Floating Elements */}
-              <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute top-10 right-10 w-16 h-16 glass rounded-xl flex items-center justify-center"
-              >
-                <span className="text-2xl">🍽️</span>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [10, -10, 10] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className="absolute bottom-10 left-10 w-16 h-16 glass rounded-xl flex items-center justify-center"
-              >
-                <span className="text-2xl">✨</span>
-              </motion.div>
+              {/* Corner accents */}
+              <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-cream-200/30" />
+              <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-cream-200/30" />
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-cream-200/30" />
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-cream-200/30" />
             </div>
           </motion.div>
         </div>

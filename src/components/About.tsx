@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import Link from 'next/link';
 
 const stats = [
   { value: '15+', label: 'Years Experience' },
@@ -25,7 +26,7 @@ export default function About() {
     <section
       ref={ref}
       id="about"
-      className="relative py-32 overflow-hidden"
+      className="relative py-28 overflow-hidden"
     >
       {/* Background with Parallax */}
       <motion.div
@@ -38,7 +39,7 @@ export default function About() {
             backgroundImage: `url('https://i.ibb.co/NnHY79kR/Generated-Image-November-12-2025-2-39-PM.png')`,
           }}
         />
-        <div className="absolute inset-0 bg-navy-950/90" />
+        <div className="absolute inset-0 bg-navy-950/92" />
       </motion.div>
 
       {/* Content */}
@@ -50,7 +51,7 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
-              className="inline-block px-4 py-2 border border-gold-500/30 text-gold-400 text-xs tracking-[0.2em] uppercase rounded-full mb-6"
+              className="inline-block px-4 py-2 border border-cream-200/10 text-cream-200/50 text-xs tracking-[0.25em] uppercase mb-6"
             >
               Our Story
             </motion.span>
@@ -59,30 +60,26 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-cream-100 mb-6 leading-tight"
+              className="font-display text-4xl sm:text-5xl font-bold text-cream-100 mb-6 leading-tight"
             >
               The Urban
-              <span className="block text-gradient-gold">Experience</span>
+              <span className="block text-cream-200/60">Experience</span>
             </motion.h2>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6 text-cream-200/80 text-lg leading-relaxed"
+              className="space-y-6 text-cream-200/60 leading-relaxed"
             >
               <p>
                 As Nicosia&apos;s leading catering company, we specialize in creating
                 unforgettable dining experiences that transcend the ordinary.
               </p>
               <p>
-                We don&apos;t just serve food; we <span className="text-gold-400 font-medium">curate atmospheres</span>.
+                We don&apos;t just serve food; we curate atmospheres.
                 Every event is a canvas, and our culinary artistry is the brush
                 that paints memories lasting a lifetime.
-              </p>
-              <p>
-                From intimate gatherings to grand celebrations, our dedicated
-                team brings passion, precision, and creativity to every plate.
               </p>
             </motion.div>
 
@@ -90,15 +87,15 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-8"
+              className="mt-10"
             >
-              <a
-                href="#services"
-                className="inline-flex items-center gap-3 text-gold-400 font-medium hover:text-gold-300 transition-colors group"
+              <Link
+                href="/company"
+                className="inline-flex items-center gap-4 text-cream-100 font-medium hover:text-cream-200/70 transition-colors group"
               >
-                <span className="uppercase tracking-wider text-sm">Discover Our Services</span>
-                <span className="w-8 h-[2px] bg-gold-500 transition-all duration-300 group-hover:w-12" />
-              </a>
+                <span className="uppercase tracking-wider text-xs">View Company Profile</span>
+                <span className="w-8 h-px bg-cream-200/30 transition-all duration-300 group-hover:w-12" />
+              </Link>
             </motion.div>
           </div>
 
@@ -107,7 +104,7 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 gap-6"
+            className="grid grid-cols-2 gap-px bg-cream-200/10"
           >
             {stats.map((stat, index) => (
               <motion.div
@@ -115,26 +112,18 @@ export default function About() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                className="glass rounded-2xl p-8 text-center group hover:border-gold-500/30 transition-all duration-300"
+                className="bg-navy-950 p-8 text-center hover:bg-navy-900 transition-colors duration-300"
               >
-                <div className="font-display text-4xl sm:text-5xl font-bold text-gradient-gold mb-2">
+                <div className="font-display text-4xl font-bold text-cream-100 mb-2">
                   {stat.value}
                 </div>
-                <div className="text-cream-200/60 text-sm uppercase tracking-wider">
+                <div className="text-cream-200/40 text-xs uppercase tracking-wider">
                   {stat.label}
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
-
-        {/* Decorative Line */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={isInView ? { scaleX: 1 } : {}}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="mt-20 h-[1px] bg-gradient-to-r from-transparent via-gold-500/30 to-transparent"
-        />
       </div>
     </section>
   );

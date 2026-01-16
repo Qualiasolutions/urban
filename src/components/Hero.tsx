@@ -33,9 +33,7 @@ export default function Hero() {
           }}
         />
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950/60 via-navy-950/40 to-navy-950" />
-        {/* Noise texture */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E')]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950/70 via-navy-950/50 to-navy-950" />
       </motion.div>
 
       {/* Content */}
@@ -48,9 +46,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-6"
+          className="mb-8"
         >
-          <span className="inline-block px-4 py-2 border border-gold-500/30 rounded-full text-gold-400 text-sm tracking-[0.2em] uppercase">
+          <span className="inline-block px-5 py-2 border border-cream-200/20 text-cream-200/70 text-xs tracking-[0.25em] uppercase">
             Nicosia&apos;s Premier Catering
           </span>
         </motion.div>
@@ -64,7 +62,7 @@ export default function Hero() {
         >
           Urban
           <br />
-          <span className="text-gradient-gold">Catering</span>
+          <span className="text-cream-200/80">Catering</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -72,11 +70,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-lg sm:text-xl md:text-2xl text-cream-200/80 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
+          className="text-lg sm:text-xl text-cream-200/60 max-w-xl mx-auto mb-12 leading-relaxed font-light"
         >
-          Transforming Nicosia venues into extraordinary
-          <br className="hidden sm:block" />
-          <span className="text-gold-400"> gastronomic experiences</span>
+          Transforming Nicosia venues into extraordinary gastronomic experiences.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -88,25 +84,19 @@ export default function Hero() {
         >
           <motion.a
             href="#menus"
-            className="group relative overflow-hidden bg-gold-500 text-navy-950 px-8 py-4 rounded-full font-semibold text-sm uppercase tracking-wider"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="px-10 py-4 bg-cream-100 text-navy-950 font-medium text-sm uppercase tracking-wider hover:bg-cream-200 transition-colors duration-300"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <span className="relative z-10">Explore Our Menus</span>
-            <motion.div
-              className="absolute inset-0 bg-gold-400"
-              initial={{ x: '-100%' }}
-              whileHover={{ x: 0 }}
-              transition={{ duration: 0.3 }}
-            />
+            Explore Menus
           </motion.a>
           <motion.a
             href="#contact"
-            className="group border-2 border-cream-100/30 text-cream-100 px-8 py-4 rounded-full font-semibold text-sm uppercase tracking-wider hover:border-gold-500 hover:text-gold-400 transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="px-10 py-4 border border-cream-200/30 text-cream-100 font-medium text-sm uppercase tracking-wider hover:bg-cream-100/5 transition-colors duration-300"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
-            Request a Quote
+            Request Quote
           </motion.a>
         </motion.div>
       </motion.div>
@@ -116,22 +106,18 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.a
           href="#corporate"
-          className="flex flex-col items-center text-cream-200/60 hover:text-gold-400 transition-colors"
+          className="flex flex-col items-center text-cream-200/40 hover:text-cream-200/70 transition-colors"
           animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <span className="text-xs uppercase tracking-[0.2em] mb-2">Scroll</span>
-          <ChevronDown className="w-5 h-5" />
+          <span className="text-[10px] uppercase tracking-[0.3em] mb-3">Scroll</span>
+          <ChevronDown className="w-4 h-4" />
         </motion.a>
       </motion.div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 border border-gold-500/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-40 right-10 w-24 h-24 border border-gold-500/10 rounded-full translate-x-1/2" />
     </section>
   );
 }
