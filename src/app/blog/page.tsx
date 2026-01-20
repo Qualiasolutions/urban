@@ -64,7 +64,7 @@ export default function BlogPage() {
       {/* Hero */}
       <section className="relative h-[400px] md:h-[500px]">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-contain bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop')`,
           }}
@@ -129,7 +129,7 @@ export default function BlogPage() {
                   {/* Image */}
                   <div className="relative aspect-[4/3] overflow-hidden mb-6">
                     <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                      className="absolute inset-0 bg-contain bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"
                       style={{ backgroundImage: `url('${post.image}')` }}
                     />
                     <div className="absolute inset-0 bg-navy-950/0 group-hover:bg-navy-950/20 transition-colors duration-500" />

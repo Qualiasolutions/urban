@@ -27,7 +27,7 @@ export default function Hero() {
         className="absolute inset-0 z-0"
       >
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-contain bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('https://i.ibb.co/cKSmDQ7w/Generated-Image-November-12-2025-2-29-PM.png')`,
           }}

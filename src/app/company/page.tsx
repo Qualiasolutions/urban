@@ -37,7 +37,7 @@ export default function CompanyPage() {
       {/* Hero */}
       <section className="relative h-[300px] md:h-[400px]">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-contain bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop')`,
           }}
