@@ -6,54 +6,7 @@ import { Calendar, Clock, ArrowRight, ChefHat } from 'lucide-react';
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-
-const blogPosts = [
-  {
-    slug: 'summer-soirees-limassol',
-    title: 'Summer Soirées: The Art of Outdoor Catering in Limassol',
-    excerpt: 'Transform your summer celebrations with exquisite outdoor catering experiences along the beautiful Limassol coastline.',
-    date: 'December 30, 2025',
-    readTime: '5 min read',
-    category: 'Seasonal',
-    image: 'https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop',
-  },
-  {
-    slug: 'wedding-catering-limassol-2025',
-    title: 'Dream Weddings: Crafting Unforgettable Menus for Your Special Day',
-    excerpt: 'From intimate beach ceremonies to grand ballroom receptions, discover how we create magical wedding dining experiences in Limassol.',
-    date: 'November 12, 2025',
-    readTime: '7 min read',
-    category: 'Weddings',
-    image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop',
-  },
-  {
-    slug: 'corporate-events-excellence',
-    title: 'Corporate Excellence: Elevating Business Events Through Culinary Innovation',
-    excerpt: 'Make your next corporate event memorable with sophisticated catering that impresses clients and inspires teams.',
-    date: 'October 11, 2025',
-    readTime: '4 min read',
-    category: 'Corporate',
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2070&auto=format&fit=crop',
-  },
-  {
-    slug: 'mediterranean-feast',
-    title: 'A Mediterranean Feast: Celebrating Cypriot Culinary Heritage',
-    excerpt: 'Journey through the rich flavors of Cyprus with our authentic Mediterranean catering menus that honor local traditions.',
-    date: 'August 22, 2025',
-    readTime: '6 min read',
-    category: 'Cuisine',
-    image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=2070&auto=format&fit=crop',
-  },
-  {
-    slug: 'private-dining-experience',
-    title: 'Private Dining: Introducing Our Exclusive At-Home Catering Service',
-    excerpt: 'Experience restaurant-quality dining in the comfort of your own home with our new private catering service across Limassol.',
-    date: 'June 17, 2025',
-    readTime: '5 min read',
-    category: 'Private Events',
-    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop',
-  },
-];
+import { blogPosts } from '@/lib/blog-posts';
 
 export default function BlogPage() {
   const ref = useRef(null);
@@ -97,14 +50,14 @@ export default function BlogPage() {
       <section ref={ref} className="py-16 md:py-24">
         <div className="px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
+            {Object.entries(blogPosts).map(([slug, post], index) => (
               <motion.article
-                key={post.slug}
+                key={slug}
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
               >
-                <Link href={`/blog/${post.slug}`} className="block group">
+                <Link href={`/blog/${slug}`} className="block group">
                   {/* Image */}
                   <div className="relative aspect-[4/3] overflow-hidden mb-6">
                     <div
@@ -139,7 +92,7 @@ export default function BlogPage() {
 
                     {/* Excerpt */}
                     <p className="text-navy-600 text-sm leading-relaxed line-clamp-3">
-                      {post.excerpt}
+                      {post.content[0].slice(0, 150)}...
                     </p>
 
                     {/* Read More */}
@@ -171,7 +124,7 @@ export default function BlogPage() {
               Subscribe to our newsletter for exclusive recipes, event tips, and special offers
             </p>
             <a
-              href="#contact"
+              href="/#contact"
               className="inline-flex items-center gap-2 bg-cream-100 text-navy-950 px-8 py-4 font-medium text-sm uppercase tracking-wider hover:bg-cream-200 transition-colors"
             >
               Get in Touch
