@@ -69,7 +69,7 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-11 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-8 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? 'bg-navy-950/95 backdrop-blur-xl border-b border-cream-200/5 py-4'
             : 'bg-transparent py-6'
