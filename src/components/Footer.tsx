@@ -32,10 +32,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <a href="#" className="inline-block mb-6">
-              <span className="font-display text-2xl font-semibold">
-                <span className="text-cream-100">Urban</span>
-                <span className="text-cream-200/50"> Catering</span>
-              </span>
+              <img
+                src="https://maas-log-prod.cn-wlcb.ufileos.com/anthropic/442a21ee-508a-4087-b062-7f5e01a812ee/61ec1cf3d3e7140c7b481047866623f9.png?UCloudPublicKey=TOKEN_e15ba47a-d098-4fbd-9afc-a0dcf0e4e621&Expires=1768927747&Signature=qBTG2Cv4DJTGyU4iMMjoahL3yaU="
+                alt="Urban Catering"
+                className="h-12 w-auto object-contain"
+              />
             </a>
             <p className="text-cream-200/40 text-sm leading-relaxed mb-6 max-w-sm">
               Transforming Nicosia venues into extraordinary gastronomic experiences

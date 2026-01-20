@@ -49,7 +49,7 @@ export default function Navigation() {
             whileTap={{ scale: 0.98 }}
           >
             <img
-              src="https://i.ibb.co/3ytjFrv/Whats-App-Image-2024-10-07-at-18-03-48.jpg"
+              src="https://maas-log-prod.cn-wlcb.ufileos.com/anthropic/442a21ee-508a-4087-b062-7f5e01a812ee/61ec1cf3d3e7140c7b481047866623f9.png?UCloudPublicKey=TOKEN_e15ba47a-d098-4fbd-9afc-a0dcf0e4e621&Expires=1768927747&Signature=qBTG2Cv4DJTGyU4iMMjoahL3yaU="
               alt="Urban Catering"
               className="h-10 md:h-12 w-auto object-contain"
             />
