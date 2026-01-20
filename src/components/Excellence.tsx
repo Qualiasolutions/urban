@@ -36,7 +36,7 @@ export default function Excellence() {
         className="absolute inset-0 z-0"
       >
         <div
-          className="absolute inset-0 bg-contain bg-center bg-no-repeat scale-110"
+          className="absolute inset-0 bg-cover bg-center scale-110"
           style={{
             backgroundImage: `url('https://i.ibb.co/JQg3dsX/unsplash-image-q-OAzn-SDk-MME.jpg')`,
           }}

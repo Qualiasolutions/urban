@@ -29,7 +29,7 @@ export default function BlogContent({ post }: BlogContentProps) {
       {/* Hero */}
       <section className="relative h-[50vh] md:h-[60vh]">
         <div
-          className="absolute inset-0 bg-contain bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${post.image}')` }}
         />
         <div className="absolute inset-0 bg-navy-950/50" />
