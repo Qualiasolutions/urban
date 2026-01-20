@@ -64,7 +64,7 @@ export default function CompanyPage() {
 
       {/* Main Content */}
       <section ref={ref} className="py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="px-6">
           <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
             {/* Left Column - Intro */}
             <motion.div

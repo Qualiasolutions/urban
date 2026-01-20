@@ -55,8 +55,6 @@ const blogPosts = [
   },
 ];
 
-const categories = ['All', 'Seasonal', 'Weddings', 'Corporate', 'Cuisine', 'Private Events'];
-
 export default function BlogPage() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -95,32 +93,9 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="bg-navy-950 py-6 border-b border-cream-200/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center gap-6 overflow-x-auto">
-            {categories.map((category, index) => (
-              <motion.button
-                key={category}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
-                className={`text-sm uppercase tracking-wider whitespace-nowrap transition-colors ${
-                  category === 'All'
-                    ? 'text-cream-100'
-                    : 'text-cream-200/40 hover:text-cream-200/70'
-                }`}
-              >
-                {category}
-              </motion.button>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Blog Grid */}
       <section ref={ref} className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
               <motion.article

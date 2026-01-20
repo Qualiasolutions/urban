@@ -44,7 +44,7 @@ export default function Excellence() {
         <div className="absolute inset-0 bg-navy-950/90" />
       </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Content */}
           <div>

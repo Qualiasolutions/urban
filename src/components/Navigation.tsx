@@ -39,16 +39,19 @@ export default function Navigation() {
             : 'bg-transparent py-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="px-6 flex items-center justify-between">
           {/* Logo */}
           <motion.a
             href="#welcome"
-            className="font-display text-xl md:text-2xl font-semibold tracking-tight"
+            className="flex items-center"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="text-cream-100">Urban</span>
-            <span className="text-cream-200/60"> Catering</span>
+            <img
+              src="https://i.ibb.co/3ytjFrv/Whats-App-Image-2024-10-07-at-18-03-48.jpg"
+              alt="Urban Catering"
+              className="h-10 md:h-12 w-auto object-contain"
+            />
           </motion.a>
 
           {/* Desktop Navigation */}
