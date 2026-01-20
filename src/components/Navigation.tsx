@@ -8,7 +8,7 @@ import Link from 'next/link';
 const navLinks = [
   { href: '#welcome', label: 'Home' },
   { href: '#corporate', label: 'Corporate' },
-  { href: '/company', label: 'About' },
+  { href: '/company', label: 'Company Profile' },
   { href: '/blog', label: 'Blog' },
   { href: '#services', label: 'Services' },
   { href: '#menus', label: 'Menus' },

@@ -4,6 +4,8 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Calendar, Clock, ArrowRight, ChefHat } from 'lucide-react';
 import Link from 'next/link';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 const blogPosts = [
   {
@@ -60,7 +62,9 @@ export default function BlogPage() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <main className="min-h-screen bg-cream-100">
+    <>
+      <Navigation />
+      <main className="min-h-screen bg-cream-100">
       {/* Hero */}
       <section className="relative h-[400px] md:h-[500px]">
         <div
@@ -202,5 +206,7 @@ export default function BlogPage() {
         </div>
       </section>
     </main>
+    <Footer />
+    </>
   );
 }

@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation';
 import BlogContent from '@/components/BlogContent';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import { getAllBlogSlugs, getBlogPost } from '@/lib/blog-posts';
 
 export async function generateStaticParams() {
@@ -13,5 +15,11 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
     notFound();
   }
 
-  return <BlogContent post={post} />;
+  return (
+    <>
+      <Navigation />
+      <BlogContent post={post} />
+      <Footer />
+    </>
+  );
 }

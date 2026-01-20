@@ -4,6 +4,8 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Building2, ChefHat, Wine, MapPin, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 const features = [
   {
@@ -33,7 +35,9 @@ export default function CompanyPage() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <main className="min-h-screen bg-cream-100">
+    <>
+      <Navigation />
+      <main className="min-h-screen bg-cream-100">
       {/* Hero */}
       <section className="relative h-[300px] md:h-[400px]">
         <div
@@ -172,5 +176,7 @@ export default function CompanyPage() {
         </div>
       </section>
     </main>
+    <Footer />
+    </>
   );
 }
