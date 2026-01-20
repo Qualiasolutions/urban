@@ -10,7 +10,6 @@ const navLinks = [
   { href: '/company', label: 'Company Profile' },
   { href: '/chefs', label: 'Chefs' },
   { href: '/blog', label: 'Blog' },
-  { href: '#services', label: 'Services' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -20,11 +19,28 @@ const menuLinks = [
   { href: '/menus/cocktail', label: 'Cocktail & Finger Food' },
 ];
 
+const servicesLinks = [
+  { href: '/services/weddings', label: 'Weddings' },
+  { href: '/services/corporate-catering', label: 'Corporate Catering' },
+  { href: '/services/bbq', label: 'BBQ' },
+  { href: '/services/cocktail-bar', label: 'Cocktail Bar' },
+  { href: '/services/candy-bar', label: 'Candy Bar' },
+  { href: '/services/coffee', label: 'Coffee Service' },
+  { href: '/services/equipment-rentals', label: 'Equipment Rentals' },
+  { href: '/services/kids-parties', label: 'Kids Parties' },
+  { href: '/services/outdoor-catering', label: 'Outdoor Catering' },
+  { href: '/services/private-chef', label: 'Private Chef' },
+  { href: '/services/private-parties', label: 'Private Parties' },
+  { href: '/services/christenings', label: 'Christenings' },
+];
+
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const servicesDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +54,9 @@ export default function Navigation() {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsMenuDropdownOpen(false);
+      }
+      if (servicesDropdownRef.current && !servicesDropdownRef.current.contains(event.target as Node)) {
+        setIsServicesDropdownOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -128,6 +147,44 @@ export default function Navigation() {
                 )}
               </AnimatePresence>
             </div>
+
+            {/* Services Dropdown */}
+            <div ref={servicesDropdownRef} className="relative">
+              <button
+                onMouseEnter={() => setIsServicesDropdownOpen(true)}
+                onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
+                className="flex items-center gap-1 text-cream-200/70 hover:text-cream-100 transition-colors text-xs font-medium tracking-[0.15em] uppercase"
+              >
+                Services
+                <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              <AnimatePresence>
+                {isServicesDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    onMouseLeave={() => setIsServicesDropdownOpen(false)}
+                    className="absolute top-full left-0 mt-4 w-64 bg-navy-900 border border-cream-200/10 shadow-xl overflow-hidden max-h-[80vh] overflow-y-auto"
+                  >
+                    <div className="grid grid-cols-1">
+                      {servicesLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          onClick={() => setIsServicesDropdownOpen(false)}
+                          className="block px-6 py-3 text-cream-200/70 hover:text-cream-100 hover:bg-cream-100/5 transition-colors text-xs font-medium tracking-wider uppercase border-b border-cream-200/5 last:border-0"
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* CTA Button */}
@@ -211,6 +268,31 @@ export default function Navigation() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: navLinks.length * 0.1 + (index + 1) * 0.1 }}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block pl-4 py-2 text-cream-200/70 hover:text-cream-100 transition-colors text-sm"
+                      >
+                        {link.label}
+                      </motion.a>
+                    ))}
+                  </div>
+
+                  {/* Mobile Services Submenu */}
+                  <div className="pt-4 border-t border-cream-200/10">
+                    <motion.span
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: (navLinks.length + 1) * 0.1 }}
+                      className="font-display text-lg text-cream-200/50 uppercase tracking-wider mb-4 block"
+                    >
+                      Services
+                    </motion.span>
+                    {servicesLinks.map((link, index) => (
+                      <motion.a
+                        key={link.href}
+                        href={link.href}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: (navLinks.length + 1) * 0.1 + (index + 1) * 0.05 }}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block pl-4 py-2 text-cream-200/70 hover:text-cream-100 transition-colors text-sm"
                       >
