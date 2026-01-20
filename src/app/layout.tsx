@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import AnnouncementBar from "@/components/AnnouncementBar";
 
 export const metadata: Metadata = {
   title: "Urban Catering | Premium Catering Services in Nicosia, Cyprus",
@@ -24,7 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="antialiased">
-        {children}
+        <AnnouncementBar />
+        <div className="pt-12">
+          {children}
+        </div>
       </body>
     </html>
   );
