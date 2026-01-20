@@ -69,7 +69,7 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-11 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? 'bg-navy-950/95 backdrop-blur-xl border-b border-cream-200/5 py-4'
             : 'bg-transparent py-6'
@@ -190,11 +190,11 @@ export default function Navigation() {
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-6">
             <a
-              href="tel:+35799123456"
+              href="tel:+35797464614"
               className="flex items-center gap-2 text-cream-200/60 hover:text-cream-100 transition-colors"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span className="text-xs font-medium">+357 99 123 456</span>
+              <span className="text-xs font-medium">97 464614</span>
             </a>
             <motion.a
               href="#contact"
@@ -303,11 +303,11 @@ export default function Navigation() {
                 </nav>
                 <div className="mt-auto pb-12">
                   <a
-                    href="tel:+35799123456"
+                    href="tel:+35797464614"
                     className="flex items-center gap-3 text-cream-200/60 mb-6"
                   >
                     <Phone className="w-4 h-4" />
-                    <span className="text-sm">+357 99 123 456</span>
+                    <span className="text-sm">97 464614</span>
                   </a>
                   <a
                     href="#contact"

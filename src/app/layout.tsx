@@ -26,9 +26,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="antialiased">
         <AnnouncementBar />
-        <div className="pt-12">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );

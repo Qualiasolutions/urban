@@ -1,6 +1,6 @@
 'use client';
 
-import { Phone, MapPin, Send } from 'lucide-react';
+import { Phone, MapPin } from 'lucide-react';
 
 const PHONE_NUMBER = '+35797464614';
 const PHONE_DISPLAY = '97 464614';
@@ -25,7 +25,11 @@ const socialLinks = [
   {
     name: 'Telegram',
     href: `https://t.me/${PHONE_NUMBER}`,
-    icon: Send,
+    icon: () => (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+      </svg>
+    ),
     color: 'hover:text-[#0088cc]',
   },
   {
@@ -58,33 +62,39 @@ const socialLinks = [
 
 export default function AnnouncementBar() {
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] bg-navy-950/95 backdrop-blur-md border-b border-cream-200/5">
-      <div className="px-4 py-2">
-        <div className="flex items-center justify-center gap-4 md:gap-6">
-          {/* Social Icons */}
-          <div className="flex items-center gap-2 md:gap-3">
+    <div className="fixed top-0 left-0 right-0 z-[60] bg-navy-950/95 backdrop-blur-md border-b border-cream-200/10">
+      <div className="px-4 py-2.5">
+        <div className="flex items-center justify-center">
+          {/* Social Links with Labels */}
+          <div className="flex items-center gap-4 md:gap-6 lg:gap-8 flex-wrap justify-center">
             {socialLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 target={link.href.startsWith('http') ? '_blank' : undefined}
                 rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className={`group flex items-center justify-center w-8 h-8 border border-cream-200/10 text-cream-200/60 transition-all duration-300 ${link.color} hover:border-cream-200/30`}
-                title={link.name}
+                className={`group flex items-center gap-2 text-cream-200/60 transition-all duration-300 ${link.color}`}
               >
-                <link.icon className="w-4 h-4" />
+                <span className="flex items-center justify-center w-7 h-7 border border-cream-200/10 group-hover:border-cream-200/30 transition-colors">
+                  <link.icon className="w-3.5 h-3.5" />
+                </span>
+                <span className="text-[10px] md:text-xs font-medium uppercase tracking-wider hidden sm:inline">
+                  {link.name}
+                </span>
               </a>
             ))}
-          </div>
 
-          {/* Phone Display - Hidden on small mobile */}
-          <div className="hidden sm:flex items-center gap-2 text-cream-200/60">
-            <span className="text-[10px] uppercase tracking-wider text-cream-200/40">Call us:</span>
+            {/* Divider */}
+            <div className="hidden md:block w-px h-5 bg-cream-200/10" />
+
+            {/* Phone Display */}
             <a
               href={`tel:${PHONE_NUMBER}`}
-              className="text-xs font-medium text-cream-100 hover:text-cream-200 transition-colors"
+              className="flex items-center gap-2 text-cream-200/60 hover:text-green-400 transition-colors"
             >
-              {PHONE_DISPLAY}
+              <span className="text-[10px] md:text-xs font-medium text-cream-100">
+                {PHONE_DISPLAY}
+              </span>
             </a>
           </div>
         </div>
