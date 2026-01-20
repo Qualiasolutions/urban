@@ -1,24 +1,30 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 
 const navLinks = [
   { href: '#welcome', label: 'Home' },
-  { href: '#corporate', label: 'Corporate' },
   { href: '/company', label: 'Company Profile' },
   { href: '/chefs', label: 'Chefs' },
   { href: '/blog', label: 'Blog' },
   { href: '#services', label: 'Services' },
-  { href: '#menus', label: 'Menus' },
   { href: '#contact', label: 'Contact' },
+];
+
+const menuLinks = [
+  { href: '/menus/buffet', label: 'Buffet & Breakfast' },
+  { href: '/menus/kids', label: 'Kids Parties' },
+  { href: '/menus/cocktail', label: 'Cocktail & Finger Food' },
 ];
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +32,16 @@ export default function Navigation() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsMenuDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   return (
@@ -76,6 +92,42 @@ export default function Navigation() {
                 </a>
               )
             ))}
+
+            {/* Menus Dropdown */}
+            <div ref={dropdownRef} className="relative">
+              <button
+                onMouseEnter={() => setIsMenuDropdownOpen(true)}
+                onClick={() => setIsMenuDropdownOpen(!isMenuDropdownOpen)}
+                className="flex items-center gap-1 text-cream-200/70 hover:text-cream-100 transition-colors text-xs font-medium tracking-[0.15em] uppercase"
+              >
+                Menus
+                <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isMenuDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              <AnimatePresence>
+                {isMenuDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    onMouseLeave={() => setIsMenuDropdownOpen(false)}
+                    className="absolute top-full left-0 mt-4 w-56 bg-navy-900 border border-cream-200/10 shadow-xl overflow-hidden"
+                  >
+                    {menuLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setIsMenuDropdownOpen(false)}
+                        className="block px-6 py-3 text-cream-200/70 hover:text-cream-100 hover:bg-cream-100/5 transition-colors text-xs font-medium tracking-wider uppercase border-b border-cream-200/5 last:border-0"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* CTA Button */}
@@ -141,6 +193,31 @@ export default function Navigation() {
                       {link.label}
                     </motion.a>
                   ))}
+
+                  {/* Mobile Menus Submenu */}
+                  <div className="pt-4 border-t border-cream-200/10">
+                    <motion.span
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: navLinks.length * 0.1 }}
+                      className="font-display text-lg text-cream-200/50 uppercase tracking-wider mb-4 block"
+                    >
+                      Menus
+                    </motion.span>
+                    {menuLinks.map((link, index) => (
+                      <motion.a
+                        key={link.href}
+                        href={link.href}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: navLinks.length * 0.1 + (index + 1) * 0.1 }}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block pl-4 py-2 text-cream-200/70 hover:text-cream-100 transition-colors text-sm"
+                      >
+                        {link.label}
+                      </motion.a>
+                    ))}
+                  </div>
                 </nav>
                 <div className="mt-auto pb-12">
                   <a

@@ -42,14 +42,17 @@ export default function Corporate() {
     <section
       ref={ref}
       id="corporate"
-      className="relative py-28 bg-cream-100 overflow-hidden"
+      className="relative py-28 overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.015]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #0a192f 1px, transparent 0)`,
-          backgroundSize: '48px 48px',
-        }} />
+      {/* Background Image with White Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('https://i.ibb.co/ynCVp7Jg/Generated-Image-November-12-2025-2-36-PM.png')`,
+          }}
+        />
+        <div className="absolute inset-0 bg-white/92" />
       </div>
 
       <div className="relative z-10 px-6">

@@ -2,28 +2,32 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Heart, Trees, Wine, UtensilsCrossed, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
-const services = [
+const services: Array<{
+  icon: string;
+  title: string;
+  description: string;
+}> = [
   {
-    icon: Heart,
+    icon: '💍',
     title: 'Weddings',
-    description: 'Dream weddings crafted with love. From intimate ceremonies to grand celebrations, we create magical moments.',
+    description: 'Dream weddings with premium service.',
   },
   {
-    icon: Trees,
-    title: 'Outdoor Events',
-    description: 'Professional logistics for any venue. Garden parties, beach events, or countryside celebrations.',
+    icon: '🌲',
+    title: 'Outdoor',
+    description: 'Professional logistics for any venue.',
   },
   {
-    icon: Wine,
+    icon: '🍸',
     title: 'Cocktail Bar',
-    description: 'High-end mobile mixology with expert bartenders. Signature cocktails tailored to your event.',
+    description: 'High-end mobile mixology.',
   },
   {
-    icon: UtensilsCrossed,
+    icon: '🍽️',
     title: 'Private Dining',
-    description: 'Exclusive chefs in your home. Intimate fine dining experiences with personalized menus.',
+    description: 'Exclusive chefs in your home.',
   },
 ];
 
@@ -91,9 +95,7 @@ export default function Services() {
               className="group bg-navy-950 p-10 hover:bg-navy-900 transition-colors duration-500"
             >
               {/* Icon */}
-              <div className="w-12 h-12 border border-cream-200/10 flex items-center justify-center mb-8 group-hover:border-cream-200/20 transition-colors">
-                <service.icon className="w-5 h-5 text-cream-200/60" />
-              </div>
+              <div className="text-4xl mb-6">{service.icon}</div>
 
               {/* Content */}
               <h3 className="font-display text-xl font-semibold text-cream-100 mb-4">
