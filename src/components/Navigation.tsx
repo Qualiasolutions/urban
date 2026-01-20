@@ -121,7 +121,7 @@ export default function Navigation() {
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="absolute inset-y-0 right-0 w-full max-w-sm bg-navy-900"
             >
-              <div className="flex flex-col h-full pt-24 px-8">
+              <div className="flex flex-col h-full pt-24 px-8 overflow-y-auto">
                 <nav className="flex flex-col gap-6">
                   {navLinks.map((link, index) => (
                     <motion.a
