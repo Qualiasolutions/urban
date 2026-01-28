@@ -3,21 +3,19 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Send, Phone, Mail, MapPin, Clock } from 'lucide-react';
-
-const PHONE_NUMBER = '+35797464614';
-const PHONE_DISPLAY = '97 464614';
+import { PHONE, PHONE_DISPLAY, EMAIL, LOCATION } from '@/lib/constants';
 
 const contactInfo = [
-  { icon: Phone, label: 'Phone', value: PHONE_DISPLAY, href: `tel:${PHONE_NUMBER}` },
-  { icon: Mail, label: 'Email', value: 'info@urbancatering.com.cy', href: 'mailto:info@urbancatering.com.cy' },
-  { icon: MapPin, label: 'Location', value: 'Nicosia, Cyprus', href: 'https://maps.google.com/?q=Urban+Catering+Nicosia+Cyprus' },
+  { icon: Phone, label: 'Phone', value: PHONE_DISPLAY, href: `tel:${PHONE}` },
+  { icon: Mail, label: 'Email', value: EMAIL, href: `mailto:${EMAIL}` },
+  { icon: MapPin, label: 'Location', value: LOCATION, href: 'https://maps.google.com/?q=Urban+Catering+Nicosia+Cyprus' },
   { icon: Clock, label: 'Hours', value: 'Mon-Sat: 9AM-7PM', href: '#' },
 ];
 
 const socialLinks = [
   {
     name: 'Viber',
-    href: `viber://chat?number=${PHONE_NUMBER.replace('+', '%2B')}`,
+    href: `viber://chat?number=${PHONE.replace('+', '%2B')}`,
     icon: () => (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
         <path d="M11.4 0C9.5.1 5.4.5 3.3 2.5 1.5 4.3.8 7 .7 10.4c-.1 3.4-.2 9.7 6 11.5v2.6s0 1.1.7 1.3c.8.3 1.3-.5 2.1-1.4.4-.5.9-1.1 1.4-1.6 3.8.3 6.7-.4 7-.5.8-.2 5.3-.8 6-6.7.8-6.1-.4-9.9-2.4-11.6-1-1-3.4-2.5-8.4-2.8-.5-.1-1-.1-1.7-.1zM12 2c.5 0 1 0 1.5.1 4.2.3 6.1 1.5 6.9 2.2 1.5 1.3 2.5 4.3 1.9 9.4-.6 4.7-3.8 5.2-4.5 5.4-.3.1-2.8.7-6 .5 0 0-2.4 2.9-3.1 3.6-.1.2-.3.2-.3-.1v-4c-5.1-1.4-4.8-6.5-4.7-9.3.1-3 .7-5.2 2.1-6.6 1.7-1.6 5.2-2 6.2-2.1.3-.1.7-.1 1 0zm.3 3.2c-.2 0-.3.2-.3.4s.1.4.3.4c1.3.1 2.4.5 3.2 1.3.8.8 1.3 1.9 1.4 3.3 0 .2.2.4.4.4h.1c.2 0 .4-.2.4-.4-.2-1.6-.8-2.9-1.8-3.9-.9-.9-2.2-1.4-3.7-1.5zm-4.6 1c-.5 0-1 .1-1.4.3-.4.2-.7.5-.8.8-.2.4-.2.8-.1 1.2l.1.4c.4 1.4 1.1 2.8 2 4.1.7.9 1.5 1.8 2.4 2.6l.1.1.1.1.1.1.1.1c.8.8 1.7 1.6 2.6 2.3 1.3.9 2.7 1.6 4.1 2 .4.1.8.2 1.2.1.3-.1.6-.3.8-.6.2-.3.4-.7.4-1.1v-.2c.1-.5-.1-1-.5-1.3l-1.7-1.2c-.4-.3-.8-.3-1.2-.1l-.9.5c-.2.1-.4.1-.6 0-.7-.4-1.4-.9-1.9-1.4-.6-.5-1.1-1.2-1.5-1.9-.1-.2-.1-.4 0-.6l.5-.9c.2-.4.2-.8-.1-1.2l-1.3-1.7c-.2-.3-.6-.5-1-.5h-.5zm4.6.9c-.2 0-.4.2-.4.4s.2.4.4.4c.7 0 1.3.3 1.7.7.5.5.7 1.1.7 1.8 0 .2.2.4.4.4s.4-.2.4-.4c0-.9-.4-1.8-1-2.4-.6-.6-1.4-.9-2.2-.9zm0 1.8c-.2 0-.4.2-.4.4s.2.4.4.4c.3 0 .5.1.7.3.2.2.3.4.3.7 0 .2.2.4.4.4s.4-.2.4-.4c0-.5-.2-1-.6-1.4-.4-.3-.8-.4-1.2-.4z"/>
@@ -27,7 +25,7 @@ const socialLinks = [
   },
   {
     name: 'Telegram',
-    href: `https://t.me/${PHONE_NUMBER}`,
+    href: `https://t.me/${PHONE}`,
     icon: () => (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
         <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>

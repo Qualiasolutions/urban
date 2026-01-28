@@ -6,6 +6,7 @@ import { ChevronLeft, Check, Phone } from 'lucide-react';
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { PHONE, PHONE_DISPLAY } from '@/lib/constants';
 
 interface ServicePageProps {
   title: string;
@@ -159,11 +160,11 @@ export default function ServicePage({
                     Request Quote
                   </a>
                   <a
-                    href="tel:+35799123456"
+                    href={`tel:${PHONE}`}
                     className="flex items-center gap-2 text-cream-200/70 hover:text-cream-100 transition-colors"
                   >
                     <Phone className="w-4 h-4" />
-                    +357 99 123 456
+                    {PHONE_DISPLAY}
                   </a>
                 </div>
               </motion.div>

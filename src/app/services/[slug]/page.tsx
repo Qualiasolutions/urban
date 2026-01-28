@@ -8,6 +8,7 @@ import { useParams, notFound } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { services } from '@/lib/services';
+import { PHONE, PHONE_DISPLAY, EMAIL } from '@/lib/constants';
 
 export default function ServicePage() {
   const params = useParams();
@@ -105,7 +106,7 @@ export default function ServicePage() {
                 {/* Contact Info */}
                 <div className="mt-12 pt-8 border-t border-navy-950/10 space-y-4">
                   <a
-                    href="tel:+35799123456"
+                    href={`tel:${PHONE}`}
                     className="flex items-center gap-4 text-navy-700 hover:text-navy-950 transition-colors group"
                   >
                     <div className="w-12 h-12 bg-cream-200 rounded-full flex items-center justify-center group-hover:bg-navy-950 group-hover:text-cream-100 transition-colors">
@@ -113,11 +114,11 @@ export default function ServicePage() {
                     </div>
                     <div>
                       <p className="text-sm text-navy-500">Call Us</p>
-                      <p className="font-medium">+357 99 123 456</p>
+                      <p className="font-medium">{PHONE_DISPLAY}</p>
                     </div>
                   </a>
                   <a
-                    href="mailto:info@urbancatering.com"
+                    href={`mailto:${EMAIL}`}
                     className="flex items-center gap-4 text-navy-700 hover:text-navy-950 transition-colors group"
                   >
                     <div className="w-12 h-12 bg-cream-200 rounded-full flex items-center justify-center group-hover:bg-navy-950 group-hover:text-cream-100 transition-colors">
@@ -125,7 +126,7 @@ export default function ServicePage() {
                     </div>
                     <div>
                       <p className="text-sm text-navy-500">Email Us</p>
-                      <p className="font-medium">info@urbancatering.com</p>
+                      <p className="font-medium">{EMAIL}</p>
                     </div>
                   </a>
                 </div>
@@ -223,7 +224,7 @@ export default function ServicePage() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
-                  href="tel:+35799123456"
+                  href={`tel:${PHONE}`}
                   className="inline-flex items-center gap-2 px-8 py-4 border border-cream-200/30 text-cream-100 font-medium text-sm uppercase tracking-wider hover:bg-cream-100/5 transition-all duration-300"
                 >
                   Call Now

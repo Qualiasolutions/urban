@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
+
+export const metadata: Metadata = {
+  title: 'BBQ Catering | Urban Catering Nicosia',
+  description: 'Authentic flame-grilled BBQ catering in Nicosia. Premium meats, souvlaki, sheftalia, and all the classics for casual gatherings and summer parties.',
+};
 
 export default function BBQPage() {
   return (

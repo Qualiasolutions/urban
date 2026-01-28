@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import MenuSlideshow from '@/components/MenuSlideshow';
+
+export const metadata: Metadata = {
+  title: 'Kids Party Menu | Urban Catering Nicosia',
+  description: 'Fun, delicious, and healthy catering options for kids parties and celebrations. Perfect for birthdays and special occasions in Nicosia.',
+};
 
 const kidsImages = [
   'https://i.ibb.co/zh7XRk2M/357-97464614-1.png',

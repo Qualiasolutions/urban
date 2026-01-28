@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
+
+export const metadata: Metadata = {
+  title: 'Private Party Catering | Urban Catering Nicosia',
+  description: 'Private party catering for birthdays, anniversaries, and celebrations in Nicosia. Custom menus, full service, and seamless event coordination.',
+};
 
 export default function PrivatePartiesPage() {
   return (

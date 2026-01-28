@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
+
+export const metadata: Metadata = {
+  title: 'Cocktail Bar Service | Urban Catering Nicosia',
+  description: 'Professional mixology and cocktail bar service for events in Nicosia. Expert bartenders, signature drinks, and elegant bar setups for weddings and parties.',
+};
 
 export default function CocktailBarPage() {
   return (

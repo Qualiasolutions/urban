@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
+
+export const metadata: Metadata = {
+  title: 'Wedding Catering | Urban Catering Nicosia',
+  description: 'Create unforgettable wedding moments with our bespoke catering. Custom menus, elegant service, and attention to every detail for your special day in Nicosia.',
+};
 
 export default function WeddingsPage() {
   return (

@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
+
+export const metadata: Metadata = {
+  title: 'Equipment Rentals | Urban Catering Nicosia',
+  description: 'Premium event equipment rentals in Nicosia. Tables, chairs, glassware, linens, tents, and more for events of any size. Delivery and setup included.',
+};
 
 export default function EquipmentRentalsPage() {
   return (

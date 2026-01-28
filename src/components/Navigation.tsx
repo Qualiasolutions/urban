@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import { PHONE, PHONE_DISPLAY } from '@/lib/constants';
 
 const navLinks = [
   { href: '#welcome', label: 'Home' },
@@ -190,11 +191,11 @@ export default function Navigation() {
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-6">
             <a
-              href="tel:+35797464614"
+              href={`tel:${PHONE}`}
               className="flex items-center gap-2 text-cream-200/60 hover:text-cream-100 transition-colors"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span className="text-xs font-medium">97 464614</span>
+              <span className="text-xs font-medium">{PHONE_DISPLAY}</span>
             </a>
             <motion.a
               href="#contact"
@@ -238,17 +239,34 @@ export default function Navigation() {
               <div className="flex flex-col h-full pt-24 px-8 overflow-y-auto">
                 <nav className="flex flex-col gap-6">
                   {navLinks.map((link, index) => (
-                    <motion.a
-                      key={link.href}
-                      href={link.href}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="font-display text-2xl text-cream-100 hover:text-cream-200/70 transition-colors"
-                    >
-                      {link.label}
-                    </motion.a>
+                    link.href.startsWith('/') ? (
+                      <motion.div
+                        key={link.href}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                      >
+                        <Link
+                          href={link.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="font-display text-2xl text-cream-100 hover:text-cream-200/70 transition-colors"
+                        >
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    ) : (
+                      <motion.a
+                        key={link.href}
+                        href={link.href}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="font-display text-2xl text-cream-100 hover:text-cream-200/70 transition-colors"
+                      >
+                        {link.label}
+                      </motion.a>
+                    )
                   ))}
 
                   {/* Mobile Menus Submenu */}
@@ -262,17 +280,20 @@ export default function Navigation() {
                       Menus
                     </motion.span>
                     {menuLinks.map((link, index) => (
-                      <motion.a
+                      <motion.div
                         key={link.href}
-                        href={link.href}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: navLinks.length * 0.1 + (index + 1) * 0.1 }}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block pl-4 py-2 text-cream-200/70 hover:text-cream-100 transition-colors text-sm"
                       >
-                        {link.label}
-                      </motion.a>
+                        <Link
+                          href={link.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block pl-4 py-2 text-cream-200/70 hover:text-cream-100 transition-colors text-sm"
+                        >
+                          {link.label}
+                        </Link>
+                      </motion.div>
                     ))}
                   </div>
 
@@ -287,27 +308,30 @@ export default function Navigation() {
                       Services
                     </motion.span>
                     {servicesLinks.map((link, index) => (
-                      <motion.a
+                      <motion.div
                         key={link.href}
-                        href={link.href}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: (navLinks.length + 1) * 0.1 + (index + 1) * 0.05 }}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block pl-4 py-2 text-cream-200/70 hover:text-cream-100 transition-colors text-sm"
                       >
-                        {link.label}
-                      </motion.a>
+                        <Link
+                          href={link.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block pl-4 py-2 text-cream-200/70 hover:text-cream-100 transition-colors text-sm"
+                        >
+                          {link.label}
+                        </Link>
+                      </motion.div>
                     ))}
                   </div>
                 </nav>
                 <div className="mt-auto pb-12">
                   <a
-                    href="tel:+35797464614"
+                    href={`tel:${PHONE}`}
                     className="flex items-center gap-3 text-cream-200/60 mb-6"
                   >
                     <Phone className="w-4 h-4" />
-                    <span className="text-sm">97 464614</span>
+                    <span className="text-sm">{PHONE_DISPLAY}</span>
                   </a>
                   <a
                     href="#contact"

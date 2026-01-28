@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
+
+export const metadata: Metadata = {
+  title: 'Christening Catering | Urban Catering Nicosia',
+  description: 'Graceful christening and baptism catering in Nicosia. Traditional Cypriot specialties, elegant presentation, and family-friendly service for blessed celebrations.',
+};
 
 export default function ChristeningsPage() {
   return (

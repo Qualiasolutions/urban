@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
+
+export const metadata: Metadata = {
+  title: 'Candy Bar Service | Urban Catering Nicosia',
+  description: 'Beautifully styled candy bar service for weddings and parties in Nicosia. Premium candies, custom color themes, and elegant displays for sweet celebrations.',
+};
 
 export default function CandyBarPage() {
   return (

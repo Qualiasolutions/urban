@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import MenuSlideshow from '@/components/MenuSlideshow';
+
+export const metadata: Metadata = {
+  title: 'Buffet & Breakfast Menu | Urban Catering Nicosia',
+  description: 'Explore our buffet and breakfast catering menu featuring Cypriot specialties, Mediterranean favorites, and international cuisine for your events in Nicosia.',
+};
 
 const buffetImages = [
   'https://i.ibb.co/jv3hy5Xv/357-97464614.png',

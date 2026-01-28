@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
+
+export const metadata: Metadata = {
+  title: 'Coffee Service | Urban Catering Nicosia',
+  description: 'Professional barista coffee service for events in Nicosia. Specialty coffee, espresso drinks, and premium teas for corporate events and conferences.',
+};
 
 export default function CoffeePage() {
   return (

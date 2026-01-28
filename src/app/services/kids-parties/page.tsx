@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
+
+export const metadata: Metadata = {
+  title: 'Kids Party Catering | Urban Catering Nicosia',
+  description: 'Fun and delicious kids party catering in Nicosia. Kid-approved menus, themed presentations, and allergy-aware preparations for memorable birthday parties.',
+};
 
 export default function KidsPartiesPage() {
   return (

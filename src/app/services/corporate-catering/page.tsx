@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
+
+export const metadata: Metadata = {
+  title: 'Corporate Catering | Urban Catering Nicosia',
+  description: 'Professional corporate catering in Nicosia for boardroom lunches, conferences, and company celebrations. Sophisticated menus that reflect your brand\'s excellence.',
+};
 
 export default function CorporateCateringPage() {
   return (

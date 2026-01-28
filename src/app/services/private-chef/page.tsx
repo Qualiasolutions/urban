@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
+
+export const metadata: Metadata = {
+  title: 'Private Chef Service | Urban Catering Nicosia',
+  description: 'Restaurant-quality private chef dining in your home. Bespoke menus, fresh ingredients, and professional service for intimate dinners in Nicosia.',
+};
 
 export default function PrivateChefPage() {
   return (

@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ServicePage from '@/components/ServicePage';
+
+export const metadata: Metadata = {
+  title: 'Outdoor Catering | Urban Catering Nicosia',
+  description: 'Outdoor catering for garden parties, beach celebrations, and park events in Nicosia. Mobile kitchens, weather planning, and exceptional food at any location.',
+};
 
 export default function OutdoorCateringPage() {
   return (
